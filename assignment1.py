@@ -10,7 +10,7 @@ Some ideas (you don't have to use them):
 def factors(number):
     answer = []
     number = (number)
-    for i in range(1,math.floor(number/2)+1):
+    for i in range(1,math.floor(number*0.5)):
         if number % i == 0:
             answer.append(i)
             answer.append(number/i)
