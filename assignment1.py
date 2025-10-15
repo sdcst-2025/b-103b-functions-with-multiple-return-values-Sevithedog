@@ -10,11 +10,15 @@ Some ideas (you don't have to use them):
 def factors(number):
     answer = []
     number = (number)
-    for i in range(1,math.floor(number*0.5)):
+    for i in range(1,math.floor(number**0.5+1)):
         if number % i == 0:
-            answer.append(i)
-            answer.append(number/i)
-            print(answer)
+            if number/i != i:
+                answer.append(i)
+                answer.append(int(number/i))
+            elif number/i == i:
+                answer.append(i)  
+    answer.sort()
+    print(answer)
     return answer
 
 def gcflcm(n1,n2):
@@ -24,14 +28,14 @@ def gcflcm(n1,n2):
     len2 = len(f2)
     f = []
     if len1 > len2:
-        for i in range(len2):
+        for i in range(0,len2):
             n = f2[i]
             if n in f1:
                 f.append(n)
     if len2 >= len1:
         for i in range(len1):
             n = f1[i]
-            if n in f1:
+            if n in f2:
                 f.append(n)
     gcf = max(f)
     lcm = (n1*n2)/gcf
